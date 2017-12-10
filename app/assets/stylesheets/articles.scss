@@ -1,3 +1,236 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.full_vod{
+    source{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+html, body{
+    overflow-x: hidden;
+}
+body{
+    width: 100%;
+}
+.t-family1{
+    font-family: 'KoPub Batang', serif !important;
+}
+
+#article-header{
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+    top: 0;
+
+    .cover_bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 101;
+        opacity: 0;
+    }
+
+    .vod_container,
+    .img_container,
+    .slide_container{
+        position: relative;
+        margin: 30px 0 30px 60px;
+        width: 90%;
+        display: block;
+        top: 0;
+
+        &.full_vod{
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    video{
+        width: 100%;
+        source{
+            width: 100%;
+        }
+    }
+
+    .title_box{
+        position: fixed;
+        top: 26%;
+        left: 16%;
+        z-index: 1;
+
+        h1{
+            position: relative;
+            left: -20%;
+            transition: all 1300ms ease-out;
+
+            div{
+                transition: all 0.3s ease-out;
+
+                color: #FFFFFF;
+                font-family: 'KoPub Batang', serif;
+
+                p:not(.sub_title){
+                    font-size: 36px;
+                    margin: 0;
+                }
+
+                span.sub_title{
+                    font-size: 22px;
+                    padding-left: 35px;
+                }
+            }
+
+            &.open{
+                left: 0;
+            }
+        }
+    }
+}
+
+.icon_arrow{
+    position: relative;
+    top: -50px;
+    text-align: center;
+    animation: section_arrow 2s 1s infinite normal;
+}
+
+@keyframes section_arrow {
+    0%  {
+        opacity: 0;
+        top: -90px;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: -65px;
+    }
+}
+
+
+
+
+.article-section{
+    position: relative;
+    background: #fff;
+    z-index: 2;
+
+    &.last{
+        padding-bottom: 60px;
+    }
+
+    .container{
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        .row{
+            width: 67%;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            p{
+                font-size: 16px;
+                line-height: 1.9;
+                width: 60%;
+                font-weight: 500;
+
+                &.section_title{
+                    font-size: 24px;
+                    color: #3e3d3d;
+                    border-bottom: 1px solid #c6c6c6;
+                    width: fit-content;
+                }
+
+                &.quote{
+                    color: #3f5080;
+                    font-size: 18px;
+                    font-weight: 100;
+                    line-height: 1.7;
+                }
+            }
+
+            .quote_wrap > .quote_mark{
+                position: relative;
+                top: 18px;
+                left: -22px;
+                width: 14px;
+                height: 14px;
+                background: url(/common_img.png) no-repeat 0 0;
+            }
+
+            .right-side{
+                float: right !important;
+            }
+
+            .vod_container,
+            .slide_container{
+                video{
+                    height: 445.5px;
+                    padding-top: 30px;
+                }
+                .under_text{
+                    width: 100%;
+                    position: absolute;
+                    text-align: center;
+                    padding-left: 30px;
+                    display: block;
+                }
+
+                &.mini{
+                    position: relative;
+                    width: 70%;
+                    &.right-side video{
+                        height: initial;
+                        padding: 10px 0 10px 30px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+body,
+#header,
+.article-section{
+    transition: background-color.65s ease;
+}
+body.bg-black{
+    background-color: #0a0a0a !important;
+
+    #header,
+    .article-section{
+        background-color: #0a0a0a !important;
+    }
+    #header{
+        display: none;
+    }
+    .article-section{
+        p:not(.quote){
+            color: #000 !important;
+        }
+        .quote{
+            color: #dbdbdb !important;
+        }
+
+        p.section_title{
+            border-bottom: 1px solid #000 !important;
+        }
+    }
+}

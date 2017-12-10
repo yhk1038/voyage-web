@@ -1,0 +1,106 @@
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+.article-section{
+    $indicator-size: 20px;
+    $indicator-interval: 70px;
+
+    .carousel{
+        padding-left: 30px;
+        padding-bottom: 50px;
+
+        .carousel-inner{
+            .item > img{
+                width: 100%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .carousel-indicators{
+            background: transparent;
+            padding-bottom: 0;
+            bottom: 15px;
+            padding-left: 60px;
+
+            li{
+                width: $indicator-size;
+                height: $indicator-size;
+                border: 4px solid #fff;
+                border-radius: 100%;
+                background: #999;
+                margin-right: $indicator-interval;
+
+                span{
+                    color: #999;
+                    position: relative;
+                    width: 0;
+                    padding-top: 20px;
+                    float: right;
+                    right: -495px;
+                }
+
+                &.active{
+                    width: $indicator-size;
+                    height: $indicator-size;
+                    border: 4px solid #666;
+                    background: #fff;
+
+                    span{
+                        color: #666;
+                    }
+                }
+
+                &:before{
+                    content: '';
+                    position: relative;
+                    display: inline-block;
+                    width: 55px;
+                    height: 1px;
+                    background: #999;
+                    float: right;
+                    right: -70px;
+                    top: 5px;
+                }
+                &:last-child:before{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.article-section .container .row .slide_container .under_text{
+    top: -20px;
+    text-align: right;
+}

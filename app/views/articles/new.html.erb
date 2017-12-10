@@ -1,5 +1,37 @@
-<h1>New Article</h1>
+<style>
+    /*html,body{background: #fff;}*/
+    #article-new #article-header .vod_container{
+        background: rgba(0, 0, 0, .2) !important;
+        opacity: 1 !important;
+    }
+</style>
 
-<%= render 'form', article: @article %>
+<section id="article-new">
+    <div id="article-header">
+        <div class="cover_bg"></div>
+        <div class="title_box">
+            <h1 class="">
+                <div>
+                    <p>no. fjdkls;af;laskflaf</p>
+                    <span class="sub_title">/ </span>
+                </div>
+            </h1>
+        </div>
+        <div class="vod_container full_vod p-fixed">
+            <video id="vod_1" class="full_vod autoPlay" loop="" autoplay="" preload="true" poster="<%#= @article.header_img %>">
+                <source src="<%#= @article.header_vod %>" type="video/mp4">
+            </video>
+        </div>
+    </div>
 
-<%= link_to 'Back', articles_path %>
+    <div class="article-section">
+        <div class="container" style="background: #fff;">
+            <h1>New Article</h1>
+
+            <%= render 'form', article: @article %>
+
+            <%= link_to 'Back', articles_path %>
+
+        </div>
+    </div>
+</section>

@@ -417,9 +417,9 @@ $(document).ready(function(){
     /*
      * Audio and Video
      */
-    if($('audio, video')[0]) {
-        $('video,audio').mediaelementplayer();
-    }
+    // if($('audio, video')[0]) {
+    //     $('video,audio').mediaelementplayer();
+    // }
 
     /*
      * Tag Select

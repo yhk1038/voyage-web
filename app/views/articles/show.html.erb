@@ -1,29 +1,188 @@
-<p id="notice"><%= notice %></p>
+<section>
+    <div id="article-header">
+        <div class="cover_bg"></div>
+        <div class="title_box">
+            <h1 class="">
+                <div>
+                    <p><%= @magazine.articles.ids.index(@article.id) + 1 %>. <%= @article.title %></p>
+                    <span class="sub_title">/ <%= @article.subtitle %></span>
+                </div>
+            </h1>
+        </div>
+        <div class="vod_container full_vod p-fixed">
+            <video id="vod_1" class="full_vod autoPlay" loop="" autoplay="" preload="true" poster="<%= @article.header_img %>">
+                <source src="<%= @article.header_vod %>" type="video/mp4">
+            </video>
+        </div>
+    </div>
 
-<p>
-  <strong>Magazine:</strong>
-  <%= @article.magazine %>
-</p>
+    <% sections = @article.sections %>
+    <% sections.each do |sec| %>
+        <div class="article-section <%= 'last' if sections.last == sec %>">
+            <% if sections.first == sec %>
+                <div class="icon_arrow">
+                    <svg width="31px" height="31px" fill="#fff" viewBox="0 0 200 138.5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path class="st0" d="M100,93.6L0,9.6L8.1,0L100,77.1L191.9,0l8.1,9.6L100,93.6z M200,54.6l-8.1-9.6L100,122.1L8.1,44.9L0,54.6 l100,83.9L200,54.6z"></path>
+                    </svg>
+                </div>
+            <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+            <div class="container">
+                <div class="row font-1">
+                    <% if sec.title %>
+                        <p class="section_title t-family1"><%= sec.title %></p>
+                    <% end %>
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @article.subtitle %>
-</p>
+                    <%= sec.content_to_html.html_safe %>
+                </div>
+            </div>
+        </div>
+    <% end %>
 
-<p>
-  <strong>Header img:</strong>
-  <%= @article.header_img %>
-</p>
+    <!--<div class="article-section">-->
+        <!--<div class="container">-->
+            <!--<div class="row font-1">-->
+                <!--<p>경북 경주와 울산 접경의 경주시 양남면 하서리. 마을 주민 김미선(64)씨가 개 2마리와 함께 몽돌해변을 걷는다. 매일 새벽 6시에 일어나 집 앞 해변을 산책한게 벌써 37년째다.</p>-->
+                <!--<p>그새 이 마을 해변 풍경은 몰라보게 달라졌다. 옛날에는 하서해수욕장이라 불렸다. 2㎞ 떨어진 수렴리 인근까지 그림 같은 백사장이 펼쳐져 있었다. 산책을 할 때면 개들이 모래 위를 신나게 뛰어다녔다. 여름에는 외지 사람들이 찾아와 해변에 돗자리를 깔고 놀았다. 하지만 지금 백사장은 간 데 없고 방파제 쌓을 때 쓰는 테트라포드가 그 자리를 대신 차지하고 있다. 하서해수욕장이란 이름 자체가 사라졌다.</p>-->
+                <!--<div class="quote_wrap">-->
+                    <!--<div class="quote_mark"></div>-->
+                    <!--<p class="quote">태풍이 오면 이 옹벽을 넘어요. 파도가. 옹벽이 다 깨져서 몇 번째 (다시) 한 거 에요.</p>-->
+                <!--</div>-->
 
-<p>
-  <strong>Header vod:</strong>
-  <%= @article.header_vod %>
-</p>
+                <!--<div class="vod_container">-->
+                    <!--<video id="vod_1" class="section_video scrollPlay fade_out big_photo height_set" controls="" preload="true" poster="http://images.joins.com/newsroom/eastsea/thumb/1_1.jpg" onended="$(this).removeClass('on')">-->
+                        <!--<source src="http://cf.c.ooyala.com/pibWxvYjE6v1hcP5yl6ubPn2wYv39fiJ/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_" type="video/mp4">-->
+                    <!--</video>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+
+<!--...............-->
+
+    <!--<div class="article-section">-->
+        <!--<div class="container">-->
+            <!--<div class="row font-1">-->
+                <!--<p class="section_title t-family1">대문 앞까지 다가온 바다</p>-->
+
+                <!--<p>집 앞 백사장이 사라지면서 버려진 주택도 있다. 경북 경주시 감포읍 나정항 바닷가에는 80여㎡ 크기의 민박집 한 채와 낡은 주택 하나가 위태롭게 서있다. 민박집 주인 이모(81) 할머니는 시름이 깊다.</p>-->
+                <!--<div class="mini slide_container right-side">-->
+                    <!--<span class="under_text">*경주 감포읍 나정리의 해안선 변화 [자료 경상북도]</span>-->
+                    <!--<div id="carousel-1" class="carousel slide carousel-fade" data-ride="carousel">-->
+                        <!--<ol class="carousel-indicators">-->
+                            <!--<li data-target="#carousel-1" data-slide-to="0" class="active"><span>sth text</span></li>-->
+                            <!--<li data-target="#carousel-1" data-slide-to="1"><span>sth text</span></li>-->
+                            <!--<li data-target="#carousel-1" data-slide-to="2"><span>sth text</span></li>-->
+                        <!--</ol>-->
+                        <!--<div class="carousel-inner" role="listbox">-->
+                            <!--<div class="item active"><img src="" style="background-image: url(http://images.joins.com/newsroom/eastsea/mainVod_thumb_01.jpg)" data-alt="2010년~2015년 사라진 해변. 서울월드컵 경기장 132개 면적" alt=""></div>-->
+                            <!--<div class="item"><img src="" style="background-image: url(http://images.joins.com/newsroom/eastsea/sea01_info.png)" data-alt="2010년~2015년 사라진 해변. 서울월드컵 경기장 132개 면적" alt=""></div>-->
+                            <!--<div class="item"><img src="" style="background-image: url(http://images.joins.com/newsroom/eastsea/sea01_info.png)" data-alt="2010년~2015년 사라진 해변. 서울월드컵 경기장 132개 면적" alt=""></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="quote_wrap">-->
+                    <!--<div class="quote_mark"></div>-->
+                    <!--<p class="quote">바다가 자꾸 뭍으로 들어와 백사장을 다 가꼬가부렸심더. 민박집 손님도 다 쫓아내고 내 집까지 빼앗아갈라고 카네예. 해녀 탈의실도 보이소. 걱정 아입니꺼...</p>-->
+                <!--</div>-->
+                <!--<p>민박집·해녀 탈의실에서 바다까지 거리는 채 1m도 되지 않는다. 대문을 나서면 바로 바다인 셈이다. 파도가 심한 날이면 바닷물이 민박집 앞으로 튀어 오른다.</p>-->
+                <!--<div class="quote_wrap">-->
+                    <!--<div class="quote_mark"></div>-->
+                    <!--<p class="quote">10년 전까지만 해도 100 걸음은 걸어 나갈 수 있는 백사장이 있었어예. 그랬는데 매년 백사장이 줄어들더니 저렇게 집하고 바다가 딱 붙어버렸다 아입니꺼. 황당합니더.</p>-->
+                <!--</div>-->
+                <!--<p>이씨는 최근 3년간 10번 넘게 자갈을 사다가 집 담과 바다 사이에 퍼부었다. 바다가 집으로 곧 들이닥칠 것만 같아서다. 그는 "집이 곧 잠겨버릴 것만 같았다"고 당시를 회상했다.</p>-->
+                <!--<p>길 건너 슈퍼마켓 주인도 불안하긴 마찬가지다. 파도가 높게 이는 날엔 바닷물이 2차선 도로를 넘어 가게 문 앞까지 튀기 때문이다. 경상북도가 앞 바다에 수중 방파제(잠제·이안제) 300여개를 설치했지만 별 도움이 안 됐다. 방파제 일부는 벌써 물에 잠겼다.</p>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+    <!--<div class="article-section">-->
+        <!--<div class="container">-->
+            <!--<div class="row font-1">-->
+                <!--<p class="section_title t-family1">무너진 정동 레일바이크</p>-->
+
+                <!--<div class="vod_container">-->
+                    <!--<video id="vod_3" class="section_video scrollPlay fade_out big_photo height_set" controls="" preload="true" poster="http://images.joins.com/newsroom/eastsea/thumb/1_2.jpg" onended="$(this).removeClass('on')">-->
+                        <!--<source src="http://cf.c.ooyala.com/o3bWxvYjE6VdW14VoYhtJRwLksAtwfQS/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_" type="video/mp4">-->
+                    <!--</video>-->
+                <!--</div>-->
+
+                <!--<div class="quote_wrap">-->
+                    <!--<div class="quote_mark"></div>-->
+                    <!--<p class="quote">레일바이크 타러 사람들이 많이 왔죠. 하지만 3~4개월간 운영을 못했을 땐 관광객이 3분의 2 정도 줄었어요.</p>-->
+                <!--</div>-->
+
+                <!--<p>강원도 강릉 정동진에서 슈퍼마켓을 운영하는 강세호(63)씨 얘기다. 국내 대표 해맞이 명소인 정동진의 레일바이크는 지난 1월 선로 100여m가 무너졌다. 6개월이 지난 지금도 전체 5.1㎞ 중 절반인 2.8㎞ 구간에만 바이크가 다닌다.</p>-->
+                <!--<div class="mini vod_container right-side">-->
+                    <!--<video id="vod_2" class="section_video scrollPlay big_photo height_set" controls="" preload="true" poster="http://images.joins.com/newsroom/eastsea/thumb/1_3.jpg">-->
+                        <!--<source src="http://cf.c.ooyala.com/t5bGxvYjE6pCV4Ok4CLc9vimXCzmIEAB/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_">-->
+                    <!--</video>-->
+                    <!--<span class="under_text">정동진 레일바이크가 무너진 데는 옹벽의 영향이 컸다.</span>-->
+                <!--</div>-->
+                <!--<p>하서해수욕장이 사라지고 정동진 레일바이크 선로가 무너진 건 해안침식(海岸浸蝕) 때문이다. 파도·바람 등의 영향으로 바닷가 모래와 토양·암석이 깎여 들어가는 현상을 가리킨다.</p>-->
+                <!--<p>해변에서 침식이 일어나면 해안선이 육지 쪽으로 후퇴하게 된다. 정동진에선 바다가 20~30m 길이의 백사장을 집어삼켰다. 그 탓에 주변 지반이 약해졌고, 옹벽이 무너지며 선로 붕괴로 이어졌다.</p>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+    <!--<div class="article-section last">-->
+        <!--<div class="container">-->
+            <!--<div class="row font-1">-->
+                <!--<p class="section_title t-family1">사라진 백사장, 축구장 132개</p>-->
+
+                <!--<p>해안침식은 바닷가 주민들의 삶을 위협한다. 백사장은 폭풍·해일 등으로부터 육지를 보호한다. 침식으로 해안선이 후퇴하고 연안 수심이 깊어지면 이런 보호 기능을 제대로 수행할 수 없게 된다.</p>-->
+                <!--<p>백사장이 사라지면 관광객도 줄어든다. 지역의 부가가치가 떨어지고 바닷가 주민들은 경제적 타격을 입게 된다.</p>-->
+                <!--<p>전국에서 해안침식이 가장 심한 곳은 경북 울진군이다. 5년간 11개 조사 대상 지점에서 22만4415㎡의 해변이 사라졌다. 경북 포항시에서도 화진·영일대 등 8개 해변 19만3670㎡가 바다로 바뀌었다. 강원도 강릉시에선 경포·안목 등 25개 지점 13만2285㎡, 고성군에선 송지호·삼포 등 26개 지점 8만9027㎡의 해변이 바다가 됐다.</p>-->
+                <!--<p>전체적으로 보면 최근 5년새 경북 55만2317㎡, 강원 39만4341㎡ 등 동해안 120여 곳 총 94만6658㎡의 해변이 사라졌다. 축구장(면적 7140㎡) 132개에 달하는 면적이 바다에 잠긴 셈이다.</p>-->
+
+                <!--<div class="img_container">-->
+                    <!--<img src="http://images.joins.com/newsroom/eastsea/sea01_info.png" alt="2010년~2015년 사라진 해변. 서울월드컵 경기장 132개 면적">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+    <%
+        prev_index, prev_article = @article.prev_one
+        next_index, next_article = @article.next_one
+    %>
+    <div id="footer-section">
+        <div class="container">
+            <div class="paging row">
+                <div class="prev col-xs-6">
+                    <% if prev_article %>
+                        <div class="paging-link" onclick="fnMove(this)" data-href="<%= article_url(prev_article) %>">
+                            <p class="paging-label">Part. <%= prev_index %></p>
+                            <p class="paging-title"><%= prev_article.title %></p>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="next col-xs-6">
+                    <% if next_article %>
+                        <div id="icon_footer_arrow">
+                            <svg width="31px" height="31px" fill="#252629" viewBox="0 0 200 138.5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <path class="st0" d="M100,93.6L0,9.6L8.1,0L100,77.1L191.9,0l8.1,9.6L100,93.6z M200,54.6l-8.1-9.6L100,122.1L8.1,44.9L0,54.6 l100,83.9L200,54.6z"></path>
+                            </svg>
+                        </div>
+                        <div class="paging-link" onclick="fnMove(this)" data-href="<%= article_url(next_article) %>">
+                            <p class="paging-label">Part. <%= next_index %></p>
+                            <p class="paging-title"><%= next_article.title %></p>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

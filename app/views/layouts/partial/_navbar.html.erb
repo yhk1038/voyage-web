@@ -1,0 +1,59 @@
+<header id="header" class="clearfix">
+    <ul class="header-inner">
+        <li class="logo">
+            <a href="index.html">Voyage</a>
+        </li>
+
+        <li>
+            <ul class="top-menu">
+                <li class="no-hover_effect">
+                    <% if @magazine %>
+                        <a href="" class="title">
+                            <p><%= @magazine.title %></p>
+                        </a>
+                    <% else %>
+                        <a href="" class="title">
+                            <p>새로운 글을 쓰는 중입니다</p>
+                        </a>
+                    <% end %>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <ul class="top-menu toggle">
+
+                <% @magazine&.articles&.each do |article| %>
+                <li class="link-border no-hover_effect <%= 'current' if article.id == @article.id %> <%= 'last' if article.id == @magazine.articles.last.id %>">
+                    <%= link_to article_path(article), class: 'nav-link' do %>
+                        <div class="nav-thumbnail">
+                            <div style="background-image: url(<%= article.header_img %>)"></div>
+                        </div>
+                        <h5><%= article.title %></h5>
+                    <% end %>
+                </li>
+                <% end %>
+            </ul>
+        </li>
+
+        <li class="pull-right">
+            <ul class="top-menu">
+                <% if @magazine %>
+                    <li id="">
+                        <a id="soundTrigger"><i class="tm-icon zmdi zmdi-notifications-off"></i></a>
+                    </li>
+
+                    <li class="">
+                        <a data-toggle="" href="#">
+                            <i class="tm-icon zmdi zmdi-share"></i>
+                        </a>
+                    </li>
+                <% else %>
+                    <li id="">
+                        <a href=""><i class="tm-icon zmdi zmdi-long-arrow-left"></i></a>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</header>
