@@ -31,10 +31,13 @@ $(document).ready(function () {
     var height = $(window).height();
     var width = $(window).width();
     var width2 = window.screen.width;
-    $('#article-header .full_vod').css('height', height).css('width', width2);
-    $('#article-header').css('height', height).css('width', width);
+    $('section:not(#article-new) #article-header .full_vod').css('height', height).css('width', width2);
+    $('section:not(#article-new) #article-header').css('height', height).css('width', width);
 
     header_textbox.addClass('open');
+
+    $('section#article-new #article-header .full_vod').css('height', height).css('width', width2);
+    $('section#article-new #article-header').css('height', height * 0.55).css('width', width);
 
 
     /*

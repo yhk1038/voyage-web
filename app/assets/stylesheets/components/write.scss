@@ -1,0 +1,175 @@
+#article-new{
+    #article-header{
+        .title_box{
+            z-index: 102;
+
+            .main_title#article-input-title{
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid transparent;
+                display: block;
+                color: #333;
+                transition: all 250ms ease;
+
+                &:hover,
+                &:focus{
+                    border-bottom: 1px solid #333;
+                }
+            }
+
+            h1 div .sub_title{
+                color: #757575;
+            }
+            input.sub_title{
+                padding-left: initial;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid transparent;
+                width: calc(100% - 53px);
+                color: #333 !important;
+                transition: all 250ms ease;
+
+                &:hover,
+                &:focus{
+                    border-bottom: 1px solid #333;
+                }
+            }
+        }
+
+        .article_header_widget{
+            position: absolute;
+            right: 10%;
+            z-index: 102;
+            width: 250px;
+            top: 100px;
+            padding: 15px 0;
+            transition: all 250ms ease;
+
+            &:focus,
+            &:hover{
+                background: #fff;
+                box-shadow: 1px 2px 12px #999;
+            }
+
+            ul{
+                padding-left: 0;
+                list-style: none;
+
+                .widget_btn{
+                    padding: 10px 16px;
+
+                    label{
+                        font-size: 14px;
+                        padding: 0;
+                        margin: 0;
+                        line-height: 21px;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                    }
+
+                    .article_input{
+                        float: right;
+
+                        &#article-input-magazine{
+                            background: transparent;
+                            border: none;
+                            font-weight: bold;
+                        }
+
+                        &#article-input-bg_vod,
+                        &#article-input-thumb_img{
+                            width: 120px;
+                            line-height: 21px;
+                        }
+
+                        &#article-input-publish_book{
+                            input,label{cursor: pointer}
+                            label[for='article-input-publish_book-on']{
+                                padding-right: 30px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .article-section{
+        .container{
+            .row{
+
+            }
+        }
+    }
+}
+
+#article-form-submit{
+    width: 50px;
+    height: 37px;
+    z-index: 200;
+    background: transparent;
+    position: fixed;
+    border: none;
+    border-radius: 0;
+    font-size: 22px;
+    right: 60px;
+    top: 0;
+    padding: 0;
+    transition: background 250ms ease;
+
+    &:hover{
+        background: rgba(0, 0, 0, 0.12);
+    }
+}
+
+
+#article-new{
+    .article-section:last-child{
+        min-height: 500px;
+    }
+    .article-section{
+        .section-textarea{
+            display: none;
+        }
+        .article-section-textarea-content,
+        .article-section-textarea-content > div{
+            font-size: 16px;
+            line-height: 1.9;
+            width: 60%;
+            font-weight: 500;
+            border: none;
+        }
+
+        .article-section-textarea-content > div{
+            margin-bottom: 20px;
+            width: 100%;
+
+            & > p{
+                width: 100%;
+            }
+        }
+    }
+}
+
+#add-section{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    width: 150px;
+    bottom: 30px;
+    padding: 12px;
+    z-index: 2;
+    box-shadow: none;
+    border: 1px solid #b3b3b3;
+    border-radius: 30px;
+    transition: all 250ms ease;
+
+    &:hover{
+        background: #B3B3B3;
+        color: #FFFFFF;
+    }
+}

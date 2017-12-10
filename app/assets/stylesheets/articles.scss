@@ -75,12 +75,12 @@ body{
                 color: #FFFFFF;
                 font-family: 'KoPub Batang', serif;
 
-                p:not(.sub_title){
+                .main_title{
                     font-size: 36px;
                     margin: 0;
                 }
 
-                span.sub_title{
+                .sub_title{
                     font-size: 22px;
                     padding-left: 35px;
                 }
@@ -140,6 +140,7 @@ body{
             margin-left: auto;
             margin-right: auto;
 
+            .section_title,
             p{
                 font-size: 16px;
                 line-height: 1.9;
@@ -147,10 +148,10 @@ body{
                 font-weight: 500;
 
                 &.section_title{
-                    font-size: 24px;
-                    color: #3e3d3d;
-                    border-bottom: 1px solid #c6c6c6;
-                    width: fit-content;
+                    font-size: 24px !important;
+                    color: #3e3d3d !important;
+                    border-bottom: 1px solid #c6c6c6 !important;
+                    width: fit-content !important;
                 }
 
                 &.quote{
