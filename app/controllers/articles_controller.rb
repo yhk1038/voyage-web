@@ -20,12 +20,14 @@ class ArticlesController < ApplicationController
 
     # GET /articles/1/edit
     def edit
+        @sections = @article.sections
     end
 
     # POST /articles
     # POST /articles.json
     def create
         @article = Article.new(article_params)
+        @sections = Section.new(section_params)
 
         respond_to do |format|
             if @article.save
@@ -62,6 +64,10 @@ class ArticlesController < ApplicationController
         end
     end
 
+
+
+
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -72,5 +78,9 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
         params.require(:article).permit(:magazine_id, :title, :subtitle, :header_img, :header_vod)
+    end
+
+    def section_params
+        params.require(:section).permit(:article_id, :title, :content)
     end
 end

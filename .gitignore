@@ -22,3 +22,6 @@
 
 .byebug_history
 tmp/*
+public/uploads/*
+.DS_Store
+*/.DS_Store

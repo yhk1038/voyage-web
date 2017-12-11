@@ -1,7 +1,15 @@
+require "#{Rails.root.to_s}/app/uploaders/img_uploader"
+require "#{Rails.root.to_s}/app/uploaders/vod_uploader"
+
 class Article < ApplicationRecord
     belongs_to :magazine
     has_many :sections
     # has_many :comments
+
+    # include ImgUploader
+    # include VodUploader
+    mount_uploader :header_img, ImgUploader
+    mount_uploader :header_vod, VodUploader
 
     def prev_one
         articles = self.magazine.articles
