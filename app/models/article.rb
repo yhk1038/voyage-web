@@ -1,5 +1,6 @@
-require "#{Rails.root.to_s}/app/uploaders/img_uploader"
-require "#{Rails.root.to_s}/app/uploaders/vod_uploader"
+sys_root = Rails.root.to_s
+require "#{sys_root}/app/uploaders/img_uploader"
+require "#{sys_root}/app/uploaders/vod_uploader"
 
 class Article < ApplicationRecord
     belongs_to :magazine
@@ -10,6 +11,9 @@ class Article < ApplicationRecord
     # include VodUploader
     mount_uploader :header_img, ImgUploader
     mount_uploader :header_vod, VodUploader
+
+    before_destroy :destroy_sub_model
+    after_destroy :destroy_media_file
 
     def prev_one
         articles = self.magazine.articles
@@ -37,5 +41,14 @@ class Article < ApplicationRecord
         end
 
         return next_index+1, next_article
+    end
+
+    def destroy_sub_model
+        self.sections.destroy_all
+    end
+
+    def destroy_media_file
+        dir_path = Rails.root.to_s + "/public/uploads/article/#{self.id}"
+        `rm -rf #{dir_path}`
     end
 end

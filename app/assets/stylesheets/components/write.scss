@@ -8,17 +8,17 @@
                 border: none;
                 border-bottom: 1px solid transparent;
                 display: block;
-                color: #333;
+                color: #fff;
                 transition: all 250ms ease;
 
                 &:hover,
                 &:focus{
-                    border-bottom: 1px solid #333;
+                    border-bottom: 1px solid #fff;
                 }
             }
 
             h1 div .sub_title{
-                color: #757575;
+                //color: #757575;
             }
             input.sub_title{
                 padding-left: initial;
@@ -26,13 +26,26 @@
                 border: none;
                 border-bottom: 1px solid transparent;
                 width: calc(100% - 53px);
-                color: #333 !important;
+                color: #fff !important;
                 transition: all 250ms ease;
 
                 &:hover,
                 &:focus{
-                    border-bottom: 1px solid #333;
+                    border-bottom: 1px solid #fff;
                 }
+            }
+
+            input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: #fff;
+            }
+            input::-moz-placeholder { /* Firefox 19+ */
+                color: #fff;
+            }
+            input:-ms-input-placeholder { /* IE 10+ */
+                color: #fff;
+            }
+            input:-moz-placeholder { /* Firefox 18- */
+                color: #fff;
             }
         }
 
@@ -43,6 +56,9 @@
             width: 250px;
             top: 100px;
             padding: 15px 0;
+
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 1px 2px 12px rgba(153, 153, 153, 0.7);
             transition: all 250ms ease;
 
             &:focus,
@@ -168,8 +184,53 @@
     border-radius: 30px;
     transition: all 250ms ease;
 
+    #num{
+        display: none;
+    }
+
     &:hover{
         background: #B3B3B3;
         color: #FFFFFF;
+    }
+}
+
+#editor-toolbox{
+    display: none;
+    position: fixed;
+    background: #b3b3b3;
+    //top: 0;
+    left: 0;
+    height: 37px;
+    z-index: 10001;
+    box-shadow: 0 2px 12px #999;
+
+    &:before{
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 10px;
+        border: 9px solid transparent;
+        border-left: 12px solid #b3b3b3;
+    }
+
+    & > a{
+        display: inline-block;
+        width: 50px;
+        height: 37px;
+        padding: 1px 12px;
+        color: #fff !important;
+        position: relative;
+        text-align: center;
+
+        transition: all 250ms ease;
+
+        & > span{
+            line-height: 37px;
+            font-size: 24px;
+        }
+
+        &:hover{
+            background: #666666;
+        }
     }
 }

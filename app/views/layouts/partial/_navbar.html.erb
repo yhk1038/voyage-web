@@ -39,6 +39,18 @@
         <li class="pull-right">
             <ul class="top-menu">
                 <% if @magazine %>
+                    <li class="">
+                        <a data-toggle="" href="<%= edit_article_path(@article) %>">
+                            <i class="tm-icon zmdi zmdi-wrench"></i>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a data-toggle="" href="<%= new_article_path %>">
+                            <i class="tm-icon zmdi zmdi-edit"></i>
+                        </a>
+                    </li>
+
                     <li id="">
                         <a id="soundTrigger"><i class="tm-icon zmdi zmdi-notifications-off"></i></a>
                     </li>
@@ -50,7 +62,7 @@
                     </li>
                 <% else %>
                     <li id="">
-                        <a href="<%= articles_path %>"><i class="tm-icon zmdi zmdi-long-arrow-left"></i></a>
+                        <a href="<%= request.referer %>"><i class="tm-icon zmdi zmdi-long-arrow-left"></i></a>
                     </li>
                 <% end %>
             </ul>

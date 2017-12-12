@@ -9,7 +9,7 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <button type="submit" id="article-form-submit" value="" class="zmdi zmdi-floppy"></button>
 
-    <section id="article-new">
+    <section id="article-new" class="short_header">
         <div id="article-header">
             <div class="cover_bg"></div>
             <div class="title_box">
@@ -63,13 +63,19 @@
             </div>
         </div>
 
+        <nav id="editor-toolbox">
+            <a href="javascript:;" data-to="normal"><span class="zmdi zmdi-format-clear"></span></a>
+            <a href="javascript:;" data-to="quote"><span class="zmdi zmdi-quote"></span></a>
+            <a href="javascript:;"><span class="zmdi zmdi-quote"></span></a>
+        </nav>
+
         <div class="article-section">
             <div class="container">
                 <div class="row font-1">
-                    <input class="section_title t-family1" name="section[title]" placeholder="문단의 제목 입니다" style="border: none;">
+                    <input class="section_title t-family1" name="section[0][title]" placeholder="문단의 제목 입니다" style="border: none;">
 
-                    <textarea name="section[content]" class="section-textarea"></textarea>
-                    <div class="html-editor-airmod note-air-editor note-editable panel-body article-section-textarea-content" contenteditable="true" id="note-editor-1">
+                    <textarea name="section[0][content]" id="section-content-0" class="section-textarea real" style="display: none;"></textarea>
+                    <div data-row="0" class="html-editor-airmod note-air-editor note-editable panel-body article-section-textarea-content" contenteditable="true" id="note-editor-0">
                         <div><p>본문을 입력해주세요</p></div>
                     </div>
                 </div>
@@ -77,5 +83,5 @@
         </div>
     </section>
 
-    <span id="add-section" class="btn btn-default">섹션 추가하기</span>
+    <span id="add-section" class="btn btn-default">섹션 추가하기<span id="num">0</span></span>
 </form>

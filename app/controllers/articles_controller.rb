@@ -27,10 +27,11 @@ class ArticlesController < ApplicationController
     # POST /articles.json
     def create
         @article = Article.new(article_params)
-        @sections = Section.new(section_params)
+        @sections = sections_params
 
         respond_to do |format|
             if @article.save
+                @sections.each { |sec| sec.update(article: @article) }
                 format.html { redirect_to @article, notice: 'Article was successfully created.' }
                 format.json { render :show, status: :created, location: @article }
             else
@@ -80,7 +81,14 @@ class ArticlesController < ApplicationController
         params.require(:article).permit(:magazine_id, :title, :subtitle, :header_img, :header_vod)
     end
 
-    def section_params
-        params.require(:section).permit(:article_id, :title, :content)
+    def sections_params
+        pas = params[:section].keys.map do |i|
+            params[:section][i]
+        end
+        sections = []
+        pas.each do |pa|
+            sections << Section.new(article_id: nil, title: pa[:title], content: pa[:content])
+        end
+        sections
     end
 end
